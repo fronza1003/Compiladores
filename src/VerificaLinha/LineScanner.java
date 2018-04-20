@@ -18,7 +18,7 @@ public class LineScanner {
 		return receivedText;
 	}
 
-	public void setReceivedText(String text) {
+	public void setReceivedText(String text) { // t
 		this.receivedText = text;
 	}
 
