@@ -21,9 +21,14 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Lexico.Constants;
 import Lexico.LexicalError;
 import Lexico.Lexico;
+import Lexico.Lexico2;
+import Lexico.ScannerConstants;
 import Lexico.Token;
+import VerificaLinha.CodeConverter;
+import VerificaLinha.LineScanner;
 
 /**
  *
@@ -416,23 +421,26 @@ public class Tela extends javax.swing.JFrame {
     private void jButtonCompileActionPerformed(java.awt.event.ActionEvent evt) throws IOException {                                               
     	
     	jButtonSaveActionPerformed(evt);
+    	//Lexico lexico = new Lexico();
     	Lexico lexico = new Lexico();
+    	//Buscar o nome de identificacao
+    	CodeConverter codCon = new CodeConverter(); 
+    	//Buscar a linha
+    	LineScanner scan = new LineScanner(jTextArea1.getText());
+    	
+
     	//...
     	lexico.setInput(Arquivo.leTodasAsLinhas(arquivoAtual));
     	//...
-    	try
-    	{
+    	try {
     	    Token t = null;
-    	    while ( (t = lexico.nextToken()) != null )
-    	    {
-    	        System.out.println(t.getLexeme());
+    	    while ( (t = lexico.nextToken()) != null ) {
+    	        System.out.println("Id: "+codCon.idToLex(t.getId())+" Lexema: "+t.getLexeme()+" Posição: "+t.getPosition());
     	    }
     	}
-    	catch ( LexicalError e )
-    	{
+    	catch ( LexicalError e ) {
     	    System.err.println(e.getMessage() + " em " + e.getPosition());
     	}
-
     }                                              
 
     private void jButtonAboutActionPerformed(java.awt.event.ActionEvent evt) {                                             

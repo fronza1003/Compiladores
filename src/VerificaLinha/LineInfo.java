@@ -6,6 +6,7 @@ public class LineInfo {
 	private int firstPosition;
 	private int lastPosition;
 	
+//	Objeto contendo o número da linha, primeira posição e ultima posição, contendo os gets e sets
 	public LineInfo(int ln, int fp, int lp) {
 		setLineNumber(ln);
 		setFirstPosition(fp);

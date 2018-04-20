@@ -2,6 +2,7 @@ package VerificaLinha;
 
 public class CodeConverter {
 	
+//	Metodo estático onde envia-se o id do erro e ele retorna a conversão.
 	public static String idToLex(int id) {
 		switch(id){
         case 2:
